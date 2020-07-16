@@ -1,0 +1,13 @@
+{
+  "name": "jeremiah_tenbrink/doubly-linked-list",
+  "mode": "modules",
+  "out": "docs",
+  "includeDeclarations": true,
+  "excludeNotExported": false,
+  "includes": "./src/",
+  "excludeExternals": true,
+  "readme": "README",
+  "exclude": [
+    "index.ts"
+  ]
+}
