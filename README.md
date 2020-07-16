@@ -9,7 +9,8 @@
   <a href="https://github.com/jeremiahtenbrink/doubly-linked-list/graphs/commit-activity" target="_blank">
     <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
   </a>
-
+</p>
+<p>
   <a href="https://medium.com/CO_Nerd" target="_blank">
     <img alt="Medium: CO_Nerd" src="https://github-badge.vercel.app/api/badges/medium/CO_Nerd" height="40" />
   </a>
