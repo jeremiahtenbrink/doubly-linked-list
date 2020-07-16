@@ -1,6 +1,6 @@
 {
   "name": "jeremiah_tenbrink/doubly-linked-list",
-  "mode": "modules",
+  "mode": "file",
   "out": "docs",
   "includeDeclarations": true,
   "excludeNotExported": false,
