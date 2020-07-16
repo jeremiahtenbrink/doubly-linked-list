@@ -1,9 +1,9 @@
-<h1 align="center">Welcome to @jeremiah_tenbrink/doubly-linked-list 👋</h1>
+<h1 align="center">Welcome to doubly-linked-list 👋</h1>
 <p>
   <a href="https://www.npmjs.com/package/@jeremiah_tenbrink/doubly-linked-list" target="_blank">
     <img alt="Version" src="https://img.shields.io/npm/v/@jeremiah_tenbrink/doubly-linked-list.svg">
   </a>
-  <a href="https://github.com/jeremiahtenbrink/doubly-linked-list#readme" target="_blank">
+  <a href="https://jeremiahtenbrink.github.io/doubly-linked-list/" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
   </a>
   <a href="https://github.com/jeremiahtenbrink/doubly-linked-list/graphs/commit-activity" target="_blank">
@@ -21,25 +21,25 @@
   </p>
 
 
-Doubly linked list.
+A Doubly Linked list for javascript.
 
 ## Install
 
 ```sh
-npm install
+npm install @jeremiah_tenbrink/doubly-linked-list
 ```
 
 ## Author
 
 👤 **Jeremiah Tenbrink**
 
-* Portfolio: http://Tenbrink.dev
+* Portfolio: http://tenbrink.dev
 * GitHub: [@jeremiahtenbrink](https://github.com/jeremiahtenbrink)
 * LinkedIn: [@jeremiahtenbrink](https://linkedin.com/in/jeremiahtenbrink)
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/jeremiahtenbrink/doubly-linked-list/issues). You can also take a look at the [contributing guide](https://github.com/jeremiahtenbrink/doubly-linked-list/blob/master/CONTRIBUTING.md).
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/jeremiahtenbrink/doubly-linked-list/issues)
 
 ## Show your support
 
