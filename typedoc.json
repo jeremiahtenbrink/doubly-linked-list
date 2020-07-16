@@ -5,8 +5,5 @@
   "includeDeclarations": true,
   "excludeNotExported": false,
   "includes": "./src/",
-  "excludeExternals": true,
-  "readme": "README",
-  "exclude": [
-  ]
+  "excludeExternals": true
 }
