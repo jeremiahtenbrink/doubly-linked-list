@@ -11,8 +11,8 @@
   </a>
 </p>
 <p>
-  <a href="https://medium.com/CO_Nerd" target="_blank">
-    <img alt="Medium: CO_Nerd" src="https://github-badge.vercel.app/api/badges/medium/CO_Nerd" height="40" />
+  <a href="https://medium.com/CO_Comp_Nerd" target="_blank">
+    <img alt="Medium: CO_Comp_Nerd" src="https://github-badge.vercel.app/api/badges/medium/CO_Comp_Nerd" height="40" />
   </a>
 
   <a href="https://dev.to/jeremiahtenbrink" target="_blank">

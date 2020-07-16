@@ -8,6 +8,5 @@
   "excludeExternals": true,
   "readme": "README",
   "exclude": [
-    "index.ts"
   ]
 }
