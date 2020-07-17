@@ -7,18 +7,25 @@ export class DoublyLinkedList {
   private tail: LinkedListNode | null = null;
   private size: number = 0;
   
-  
-  constructor(value: any = null) {
-  
+  /**
+   * @type {function} constructor
+   * @param {any} [value = null]  initialize with a value
+   */
+  constructor( value: any = null ) {
+    if ( value ) {
+      const node = new LinkedListNode( value )
+      this.head = node;
+      this.tail = node;
+    }
   }
   
   /**
-   * Adds to the head of the LL
+   * @type {function} addToHead   Adds to the head of the LL
    * @param value
    */
   addToHead( value: any ): void {
     const node = new LinkedListNode( value )
-    
+    this.size += 1;
     /**
      * check if there is a tail node
      */
@@ -35,49 +42,52 @@ export class DoublyLinkedList {
       /**
        * the list is not empty
        */
-      node.setPrev(this.head)
-      this.head.setNext(node)
+      node.setPrev( this.head )
+      this.head.setNext( node )
       this.head = node;
     }
   }
   
   /**
-   * Adds to the tail of the LL
+   * @type {function} addToTail  Adds to the tail of the LL
    * @param value
    */
   addToTail( value: any ): void {
     const node = new LinkedListNode( value );
-    
+    this.size += 1;
     // check if their is a head node
-    if (this.head === null){
+    if ( this.head === null ) {
       // list is empty
       this.head = node;
       this.tail = node;
-    }else {
+    } else {
       // list is not empty
-      node.setPrev(this.tail)
-      this.tail.setNext(node);
+      node.setNext( this.tail )
+      this.tail.setPrev( node );
       this.tail = node;
     }
     
   }
   
   /**
-   * Returns the value of the head node. False if doesn't exist.
+   * @type {function} removeFromHead    Returns the value of the head node.
+   * Null if doesn't exist.
+   *
+   * @return {null | any} value of the node at the head
    */
-  removeFromHead(): false | any {
+  removeFromHead(): null | any {
     // check for head
     if ( !this.head ) {
-      return false;
+      return null;
     } else {
       //get value of head
       const value = this.head.value;
-      
+      this.size -= 1;
       // check for next in line
       if ( this.head.prev ) {
         
         // set next in line to the head
-        this.head = this.head.prev;
+        this.head = this.head.getPrev();
         // remove ref to current head
         this.head.next = null;
       } else {
@@ -93,22 +103,28 @@ export class DoublyLinkedList {
   }
   
   /**
-   * Returns the value of the tail node. False if doesn't exist.
+   * @type {function} removeFromTail  Returns the value of the tail node.
+   * False if doesn't exist.
+   *
+   * @return {null | any} value of the node at the tail
    */
-  removeFromTail(): false | any {
+  removeFromTail(): null | any {
     if ( !this.tail ) {
-      return false;
+      return null;
     }
     
     const value = this.tail.value;
+    this.size -= 1;
     //check for stuff in front of tail
     if ( this.tail.next ) {
+      
       // set next in line to the new tail
       const oldTail = this.tail;
-      this.tail = oldTail.next;
+      this.tail = oldTail.getNext();
+      
       // remove link to old tail
       this.tail.prev = null
-      oldTail.next = null;
+      
     } else {
       // there is no next
       this.tail = null;
@@ -116,6 +132,13 @@ export class DoublyLinkedList {
     }
     
     return value;
+  }
+  
+  /**
+   * @type {function} getSize   returns the size of the doubly linked list.
+   */
+  getSize(): number {
+    return this.size;
   }
   
 }

@@ -1,29 +1,58 @@
 "use strict";
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.LinkedListNode = void 0;
-var LinkedListNode = /** @class */ (function (_super) {
-    __extends(LinkedListNode, _super);
+/**
+ * Linked List Node
+ *
+ */
+var LinkedListNode = /** @class */ (function () {
+    /**
+     * @type {function} constructor   Takes a value and creates a new node.
+     * @param {any} value
+     */
     function LinkedListNode(value) {
-        var _this = _super.call(this) || this;
-        _this.next = null;
-        _this.prev = null;
-        _this.value = value;
-        return _this;
+        this.next = null;
+        this.prev = null;
+        this.value = value;
     }
+    /**
+     * @type {function} setNext   sets the node next pointer to the new node
+     * @param {LinkedListNode} node
+     * @throws {Error} error      throws error if node is not a valid node
+     */
+    LinkedListNode.prototype.setNext = function (node) {
+        if (typeof node === "object" && node.value) {
+            this.next = node;
+            return;
+        }
+        throw new Error("node must be of type object and include property value");
+    };
+    /**
+     * @type {function} getNext   Gets the next node
+     *
+     */
+    LinkedListNode.prototype.getNext = function () {
+        return this.next;
+    };
+    /**
+     * @type {function} setPrev   sets the nodes prev node to node passed in
+     * @param {LinkedListNode} node
+     * @throws {Error} error      throws error if node is not a valid node
+     */
+    LinkedListNode.prototype.setPrev = function (node) {
+        if (typeof node === "object" && node.value) {
+            this.prev = node;
+            return;
+        }
+        throw new Error("node must be of type object and include property value");
+    };
+    /**
+     * @type {function} getPrev    Gets the prev node and returns it.
+     */
+    LinkedListNode.prototype.getPrev = function () {
+        return this.prev;
+    };
     return LinkedListNode;
-}(Object));
+}());
 exports.LinkedListNode = LinkedListNode;
 //# sourceMappingURL=LinkedListNode.js.map
