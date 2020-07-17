@@ -1,4 +1,4 @@
-export declare class DoublyLinkedList extends Object {
+export declare class DoublyLinkedList {
     private head;
     private tail;
     constructor();

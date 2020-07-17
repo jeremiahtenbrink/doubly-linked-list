@@ -1,13 +1,15 @@
 import { LinkedListNode } from "./LinkedListNode";
 
 
-export class DoublyLinkedList extends Object {
+export class DoublyLinkedList {
   
   private head: LinkedListNode | null = null;
   private tail: LinkedListNode | null = null;
+  private size: number = 0;
   
-  constructor() {
-    super();
+  
+  constructor(value: any = null) {
+  
   }
   
   /**
@@ -16,8 +18,27 @@ export class DoublyLinkedList extends Object {
    */
   addToHead( value: any ): void {
     const node = new LinkedListNode( value )
-    node.prev = this.head;
-    this.head = node;
+    
+    /**
+     * check if there is a tail node
+     */
+    if ( this.tail === null ) {
+      
+      /**
+       * if no tail node then the list is empty
+       * so make the head and the tail the new node
+       */
+      this.head = node;
+      this.tail = node;
+    } else {
+      
+      /**
+       * the list is not empty
+       */
+      node.setPrev(this.head)
+      this.head.setNext(node)
+      this.head = node;
+    }
   }
   
   /**
@@ -26,11 +47,19 @@ export class DoublyLinkedList extends Object {
    */
   addToTail( value: any ): void {
     const node = new LinkedListNode( value );
-    node.next = this.tail;
-    if ( this.tail ) {
-      this.tail.prev = node;
+    
+    // check if their is a head node
+    if (this.head === null){
+      // list is empty
+      this.head = node;
+      this.tail = node;
+    }else {
+      // list is not empty
+      node.setPrev(this.tail)
+      this.tail.setNext(node);
+      this.tail = node;
     }
-    this.tail = node;
+    
   }
   
   /**

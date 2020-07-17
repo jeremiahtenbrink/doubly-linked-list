@@ -1,27 +1,11 @@
 "use strict";
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DoublyLinkedList = void 0;
 var LinkedListNode_1 = require("./LinkedListNode");
-var DoublyLinkedList = /** @class */ (function (_super) {
-    __extends(DoublyLinkedList, _super);
+var DoublyLinkedList = /** @class */ (function () {
     function DoublyLinkedList() {
-        var _this = _super.call(this) || this;
-        _this.head = null;
-        _this.tail = null;
-        return _this;
+        this.head = null;
+        this.tail = null;
     }
     /**
      * Adds to the head of the LL
@@ -96,6 +80,6 @@ var DoublyLinkedList = /** @class */ (function (_super) {
         return value;
     };
     return DoublyLinkedList;
-}(Object));
+}());
 exports.DoublyLinkedList = DoublyLinkedList;
 //# sourceMappingURL=DoublyLinkedList.js.map
