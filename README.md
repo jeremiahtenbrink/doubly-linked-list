@@ -25,9 +25,38 @@ A Doubly Linked list for javascript.
 
 ## Install
 
-```sh
+With Npm
+
+```shell script
 npm install @jeremiah_tenbrink/doubly-linked-list
 ```
+
+With Yarn
+
+```shell script
+yarn add @jeremiah_tenbrink/doubly-linked-list
+```
+
+
+## Usage
+
+```javascript
+import {DoublyLinkedList} from '@jeremiah_tenbrink/doubly-linked-list';
+const dll = DoublyLinkedList();
+
+dll.addToHead("some value");
+
+let dllSize = dll.getSize();
+let value = dll.removeFromHead();
+console.log(value);
+
+dll.addToTail(45);
+dll.addToTail(50);
+value = dll.removeFromTail();
+console.log(value)
+
+```
+
 
 ## Author
 
