@@ -9,6 +9,8 @@
   <a href="https://github.com/jeremiahtenbrink/doubly-linked-list/graphs/commit-activity" target="_blank">
     <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
   </a>
+  <a href="https://codeclimate.com/github/jeremiahtenbrink/doubly-linked-list/maintainability"><img src="https://api.codeclimate.com/v1/badges/2acff3b445772d7e55be/maintainability" /></a>
+  <a href="https://codeclimate.com/github/jeremiahtenbrink/doubly-linked-list/test_coverage"><img src="https://api.codeclimate.com/v1/badges/2acff3b445772d7e55be/test_coverage" /></a>
 </p>
 <p>
   <a href="https://medium.com/CO_Comp_Nerd" target="_blank">
