@@ -17,6 +17,7 @@
     "docs": "typedoc",
     "publish-package": "npm publish --access public",
     "test": "jest",
+    "githubTest": "CI=true npm run coverage || true",
     "coverage": "jest --coverage"
   },
   "main": "dist/index.js",
