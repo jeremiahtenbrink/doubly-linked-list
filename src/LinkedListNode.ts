@@ -21,12 +21,9 @@ export class LinkedListNode {
    * @param {LinkedListNode} node
    * @throws {Error} error      throws error if node is not a valid node
    */
-  setNext(node: LinkedListNode): void {
-    if(typeof  node === "object" && node.value){
-      this.next = node
-      return;
-    }
-    throw new Error("node must be of type object and include property value")
+  setNext( node: LinkedListNode ): void {
+    this.checkNode( node )
+    this.next = node;
   }
   
   /**
@@ -39,21 +36,31 @@ export class LinkedListNode {
   
   /**
    * @type {function} setPrev   sets the nodes prev node to node passed in
-   * @param {LinkedListNode} node
    * @throws {Error} error      throws error if node is not a valid node
+   * @param {LinkedListNode} node
+   *
    */
-  setPrev(node: LinkedListNode): void {
-    if(typeof  node === "object" && node.value){
-      this.prev = node
-      return;
-    }
-    throw new Error("node must be of type object and include property value")
+  setPrev( node: LinkedListNode ): void {
+    this.checkNode( node );
+    this.prev = node;
   }
   
   /**
    * @type {function} getPrev    Gets the prev node and returns it.
    */
   getPrev(): null | LinkedListNode {
-    return  this.prev;
+    return this.prev;
+  }
+  
+  /**
+   * @type {function} checkNode   returns true if the node is a valid node
+   * @throws {Error} error      throws error if node is not a valid node
+   * @param node
+   */
+  private checkNode( node: LinkedListNode ): boolean {
+    if ( typeof node === "object" && node.value ) {
+      return true
+    }
+    throw new Error( "node must be of type object and include property value" )
   }
 }
