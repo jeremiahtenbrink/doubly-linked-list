@@ -8,6 +8,9 @@ export class DoublyLinkedList {
   private size: number = 0;
   
   /**
+   * Call to create the DLL and to optionally pass in a item to be added to
+   * the DLL head.
+   *
    * @type {function} constructor
    * @param {any} [value = null]  initialize with a value
    */
@@ -21,7 +24,10 @@ export class DoublyLinkedList {
   
   
   /**
-   * @type {function} addToHead   Adds to the head of the LL
+   *
+   * Adds to the head of the DLL
+   *
+   * @type {function} addToHead
    * @param value
    */
   addToHead( value: any ): void {
@@ -50,7 +56,9 @@ export class DoublyLinkedList {
   }
   
   /**
-   * @type {function} addToTail  Adds to the tail of the LL
+   * Adds to the tail of the DLL
+   *
+   * @type {function} addToTail
    * @param value
    */
   addToTail( value: any ): void {
@@ -71,8 +79,10 @@ export class DoublyLinkedList {
   }
   
   /**
-   * @type {function} removeFromHead    Returns the value of the head node.
+   * Returns the value of the head node.
    * Null if doesn't exist.
+   *
+   * @type {function} removeFromHead
    *
    * @return {null | any} value of the node at the head
    */
@@ -104,8 +114,10 @@ export class DoublyLinkedList {
   }
   
   /**
-   * @type {function} removeFromTail  Returns the value of the tail node.
+   * Returns the value of the tail node.
    * False if doesn't exist.
+   *
+   * @type {function} removeFromTail
    *
    * @return {null | any} value of the node at the tail
    */
@@ -136,6 +148,9 @@ export class DoublyLinkedList {
   }
   
   /**
+   *
+   * Returns the size of the DLL
+   *
    * @type {function} getSize   returns the size of the doubly linked list.
    */
   getSize(): number {
@@ -143,6 +158,10 @@ export class DoublyLinkedList {
   }
   
   /**
+   *
+   * Call this function when you want to iterate through the entire list of
+   * items.
+   *
    * @type {function} forEach calls a callback function for each value added
    * to the DLL
    * @param {Function} cb call back function
@@ -178,8 +197,13 @@ export class DoublyLinkedList {
   
   /**
    *
-   * @type {function} forSome Return true in the callback to stop this
-   * function from continuing to iterate through the items.
+   * Call this function when you want to iterate throught the items in the
+   * linked list but don't want to iterate through all of them.
+   *
+   * Return true in the callback to stop this function from continuing
+   * to iterate through the items.
+   *
+   * @type {function} forSome
    *
    * @param {function} cb callback function
    * @return {Promise} returns promise that resolves when complete or when
