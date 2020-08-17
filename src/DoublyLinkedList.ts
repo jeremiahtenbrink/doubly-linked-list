@@ -3,8 +3,8 @@ import { LinkedListNode } from "./LinkedListNode";
 
 export class DoublyLinkedList {
   
-  private head: LinkedListNode | null = null;
-  private tail: LinkedListNode | null = null;
+  private head: LinkedListNode<any> | null = null;
+  private tail: LinkedListNode<any> | null = null;
   private size: number = 0;
   
   /**
@@ -18,6 +18,7 @@ export class DoublyLinkedList {
       this.tail = node;
     }
   }
+  
   
   /**
    * @type {function} addToHead   Adds to the head of the LL
@@ -141,4 +142,51 @@ export class DoublyLinkedList {
     return this.size;
   }
   
+  /**
+   * @type {function} forEach calls a callback function for each value added
+   * to the DLL
+   * @param {Function} cb call back function
+   * @return {Promise} returns a promise that gets resolved once finished or
+   * rejects if there is an error
+   */
+  forEach( cb: ( item: any ) => {} ): Promise<IterationComplete> {
+    return new Promise( ( resolve, reject ) => {
+      
+      try {
+        
+        if ( this.size === 0 ) {
+          resolve( {
+            complete: true,
+            error: new Error( "There are no items in the DLL" )
+          } )
+        }
+        
+        let node = this.head;
+        while ( node ) {
+          cb( node.value );
+          node = node.prev;
+        }
+        
+        return resolve( { complete: true, error: null } )
+        
+      } catch ( e ) {
+        reject( { complete: false, error: e } )
+      }
+      
+    } )
+  }
+}
+
+
+interface IterationComplete {
+  /**
+   * @type {boolean} complete Indicates if iteration over the list is complete
+   */
+  complete: boolean,
+  
+  /**
+   * @type {Error | null} error if a error occurred while iterating over the
+   * list
+   */
+  error: Error | null
 }

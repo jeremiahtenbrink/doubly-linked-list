@@ -108,4 +108,25 @@ describe( 'tests the DoubllyLinkedList class', () => {
     expect( dll.getSize() ).toBe( 0 )
   } )
   
+  it( 'checks the forEach function', async () => {
+    
+    let result = await dll.forEach( item => {
+    } );
+    expect( result.complete ).toBe( true );
+    expect( result.error.message ).toBe( "There are no items in the DLL" )
+    dll.addToHead( 23 );
+    dll.addToHead( 24 );
+    dll.addToHead( 25 );
+    const items = []
+    result = await dll.forEach( ( item => {
+      items.push( item );
+    } ) );
+    expect( items.length ).toBe( 3 );
+    expect( items ).toContain( 23 )
+    expect( items ).toContain( 24 )
+    expect( items ).toContain( 25 )
+    expect( result.complete ).toBe( true )
+    expect( result.error ).toBe( null )
+  } )
+  
 } )
