@@ -21,11 +21,8 @@ var LinkedListNode = /** @class */ (function () {
      * @throws {Error} error      throws error if node is not a valid node
      */
     LinkedListNode.prototype.setNext = function (node) {
-        if (typeof node === "object" && node.value) {
-            this.next = node;
-            return;
-        }
-        throw new Error("node must be of type object and include property value");
+        this.checkNode(node);
+        this.next = node;
     };
     /**
      * @type {function} getNext   Gets the next node
@@ -36,21 +33,30 @@ var LinkedListNode = /** @class */ (function () {
     };
     /**
      * @type {function} setPrev   sets the nodes prev node to node passed in
-     * @param {LinkedListNode} node
      * @throws {Error} error      throws error if node is not a valid node
+     * @param {LinkedListNode} node
+     *
      */
     LinkedListNode.prototype.setPrev = function (node) {
-        if (typeof node === "object" && node.value) {
-            this.prev = node;
-            return;
-        }
-        throw new Error("node must be of type object and include property value");
+        this.checkNode(node);
+        this.prev = node;
     };
     /**
      * @type {function} getPrev    Gets the prev node and returns it.
      */
     LinkedListNode.prototype.getPrev = function () {
         return this.prev;
+    };
+    /**
+     * @type {function} checkNode   returns true if the node is a valid node
+     * @throws {Error} error      throws error if node is not a valid node
+     * @param node
+     */
+    LinkedListNode.prototype.checkNode = function (node) {
+        if (typeof node === "object" && node.value) {
+            return true;
+        }
+        throw new Error("node must be of type object and include property value");
     };
     return LinkedListNode;
 }());

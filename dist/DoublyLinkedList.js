@@ -129,6 +129,35 @@ var DoublyLinkedList = /** @class */ (function () {
     DoublyLinkedList.prototype.getSize = function () {
         return this.size;
     };
+    /**
+     * @type {function} forEach calls a callback function for each value added
+     * to the DLL
+     * @param {Function} cb call back function
+     * @return {Promise} returns a promise that gets resolved once finished or
+     * rejects if there is an error
+     */
+    DoublyLinkedList.prototype.forEach = function (cb) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            try {
+                if (_this.size === 0) {
+                    resolve({
+                        complete: true,
+                        error: new Error("There are no items in the DLL")
+                    });
+                }
+                var node = _this.head;
+                while (node) {
+                    cb(node.value);
+                    node = node.prev;
+                }
+                return resolve({ complete: true, error: null });
+            }
+            catch (e) {
+                reject({ complete: false, error: e });
+            }
+        });
+    };
     return DoublyLinkedList;
 }());
 exports.DoublyLinkedList = DoublyLinkedList;

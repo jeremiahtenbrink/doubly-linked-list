@@ -12,18 +12,14 @@
   <a href="https://codeclimate.com/github/jeremiahtenbrink/doubly-linked-list/maintainability"><img src="https://api.codeclimate.com/v1/badges/2acff3b445772d7e55be/maintainability" /></a>
   <a href="https://codeclimate.com/github/jeremiahtenbrink/doubly-linked-list/test_coverage"><img src="https://api.codeclimate.com/v1/badges/2acff3b445772d7e55be/test_coverage" /></a>
 </p>
-<p>
-  <a href="https://medium.com/CO_Comp_Nerd" target="_blank">
-    <img alt="Medium: CO_Comp_Nerd" src="https://github-badge.vercel.app/api/badges/medium/CO_Comp_Nerd" height="40" />
-  </a>
-
-  <a href="https://dev.to/jeremiahtenbrink" target="_blank">
-    <img alt="Dev.to: jeremiahtenbrink" src="https://github-badge.vercel.app/api/badges/devto/jeremiahtenbrink" height="40"/>
-  </a>
-  </p>
 
 
 A Doubly Linked list for javascript.
+
+## Documentation
+<a href="https://jeremiahtenbrink.github.io/doubly-linked-list/">Read
+ documentation here.
+</a>
 
 ## Install
 
@@ -55,7 +51,25 @@ console.log(value);
 dll.addToTail(45);
 dll.addToTail(50);
 value = dll.removeFromTail();
-console.log(value)
+console.log(value);
+
+dll.forEach(item => {
+  console.log(item);
+}).then(result => {
+  console.log(result.complete);
+}).catch(e => {
+  console.log(e.message)
+})
+
+dll.forSome(item => {
+  console.log(item);
+  return true;
+}).then(result => {
+  console.log(result.complete) // should be false because true was returned in the forSome callback function
+}).catch(e => {
+  console.log(e.message)
+})
+
 
 ```
 

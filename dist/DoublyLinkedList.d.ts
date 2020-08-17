@@ -35,4 +35,24 @@ export declare class DoublyLinkedList {
      * @type {function} getSize   returns the size of the doubly linked list.
      */
     getSize(): number;
+    /**
+     * @type {function} forEach calls a callback function for each value added
+     * to the DLL
+     * @param {Function} cb call back function
+     * @return {Promise} returns a promise that gets resolved once finished or
+     * rejects if there is an error
+     */
+    forEach(cb: (item: any) => {}): Promise<IterationComplete>;
 }
+interface IterationComplete {
+    /**
+     * @type {boolean} complete Indicates if iteration over the list is complete
+     */
+    complete: boolean;
+    /**
+     * @type {Error | null} error if a error occurred while iterating over the
+     * list
+     */
+    error: Error | null;
+}
+export {};

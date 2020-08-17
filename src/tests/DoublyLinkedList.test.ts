@@ -129,4 +129,37 @@ describe( 'tests the DoubllyLinkedList class', () => {
     expect( result.error ).toBe( null )
   } )
   
+  it( "tests the forSome function", async () => {
+    let result = await dll.forSome( item => {
+    } );
+    expect( result.complete ).toBe( true )
+    expect( result.error.message ).toBe( "There are no items in the DLL" )
+    
+    dll.addToHead( 23 );
+    dll.addToHead( 24 );
+    dll.addToHead( 25 );
+    let items = []
+    result = await dll.forSome( item => {
+      items.push( item );
+      return true;
+    } );
+    
+    expect( result.complete ).toBe( false );
+    expect( items.length ).toBe( 1 );
+    
+    items = []
+    result = await dll.forSome( item => {
+      items.push( item )
+    } );
+    expect( result.complete ).toBe( true );
+    expect( result.error ).toBe( null );
+    expect( items.length ).toBe( 3 );
+    expect( items ).toContain( 23 )
+    expect( items ).toContain( 24 )
+    expect( items ).toContain( 25 )
+    
+    
+  } )
+  
+  
 } )

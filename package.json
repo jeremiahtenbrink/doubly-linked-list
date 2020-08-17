@@ -1,6 +1,6 @@
 {
   "name": "@jeremiah_tenbrink/doubly-linked-list",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "private": false,
   "author": "Jeremiah Tenbrink <jeremiahtenbrink@gmail.com>",
   "description": "Doubly linked list.",

@@ -175,6 +175,43 @@ export class DoublyLinkedList {
       
     } )
   }
+  
+  /**
+   *
+   * @type {function} forSome Return true in the callback to stop this
+   * function from continuing to iterate through the items.
+   *
+   * @param {function} cb callback function
+   * @return {Promise} returns promise that resolves when complete or when
+   * true is returned from the callback function.
+   */
+  forSome( cb: ( item ) => {} ): Promise<IterationComplete> {
+    return new Promise( ( resolve, reject ) => {
+      if ( this.size === 0 ) {
+        resolve( {
+          complete: true, error: new Error( "There are no items in the DLL" )
+        } )
+      } else {
+        try {
+          let node = this.head;
+          while ( node ) {
+            let value = cb( node.value );
+            if ( value === true ) {
+              resolve( { complete: false, error: null } )
+              node = null
+            } else {
+              node = node.prev;
+            }
+          }
+          
+          resolve( { complete: true, error: null } )
+        } catch ( e ) {
+          reject( { complete: false, error: e } )
+        }
+        
+      }
+    } )
+  }
 }
 
 
