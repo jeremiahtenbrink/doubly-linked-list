@@ -4,6 +4,9 @@ exports.DoublyLinkedList = void 0;
 var LinkedListNode_1 = require("./LinkedListNode");
 var DoublyLinkedList = /** @class */ (function () {
     /**
+     * Call to create the DLL and to optionally pass in a item to be added to
+     * the DLL head.
+     *
      * @type {function} constructor
      * @param {any} [value = null]  initialize with a value
      */
@@ -19,7 +22,10 @@ var DoublyLinkedList = /** @class */ (function () {
         }
     }
     /**
-     * @type {function} addToHead   Adds to the head of the LL
+     *
+     * Adds to the head of the DLL
+     *
+     * @type {function} addToHead
      * @param value
      */
     DoublyLinkedList.prototype.addToHead = function (value) {
@@ -46,7 +52,9 @@ var DoublyLinkedList = /** @class */ (function () {
         }
     };
     /**
-     * @type {function} addToTail  Adds to the tail of the LL
+     * Adds to the tail of the DLL
+     *
+     * @type {function} addToTail
      * @param value
      */
     DoublyLinkedList.prototype.addToTail = function (value) {
@@ -66,8 +74,10 @@ var DoublyLinkedList = /** @class */ (function () {
         }
     };
     /**
-     * @type {function} removeFromHead    Returns the value of the head node.
+     * Returns the value of the head node.
      * Null if doesn't exist.
+     *
+     * @type {function} removeFromHead
      *
      * @return {null | any} value of the node at the head
      */
@@ -97,8 +107,10 @@ var DoublyLinkedList = /** @class */ (function () {
         }
     };
     /**
-     * @type {function} removeFromTail  Returns the value of the tail node.
+     * Returns the value of the tail node.
      * False if doesn't exist.
+     *
+     * @type {function} removeFromTail
      *
      * @return {null | any} value of the node at the tail
      */
@@ -124,37 +136,97 @@ var DoublyLinkedList = /** @class */ (function () {
         return value;
     };
     /**
+     *
+     * Returns the size of the DLL
+     *
      * @type {function} getSize   returns the size of the doubly linked list.
      */
     DoublyLinkedList.prototype.getSize = function () {
         return this.size;
     };
     /**
+     *
+     * Call this function when you want to iterate through the entire list of
+     * items.
+     *
      * @type {function} forEach calls a callback function for each value added
      * to the DLL
-     * @param {Function} cb call back function
-     * @return {Promise} returns a promise that gets resolved once finished or
-     * rejects if there is an error
+     * @throws {Error} if this DLL is empty
+     * @param {function} cb call back function
+     *
      */
     DoublyLinkedList.prototype.forEach = function (cb) {
         var _this = this;
-        return new Promise(function (resolve, reject) {
-            try {
-                if (_this.size === 0) {
-                    resolve({
-                        complete: true,
-                        error: new Error("There are no items in the DLL")
-                    });
-                }
+        return new Promise(function (resolve) {
+            if (_this.size === 0) {
+                throw new Error("There are no items in this DLL");
+            }
+            var node = _this.head;
+            while (node) {
+                cb(node.value);
+                node = node.prev;
+            }
+            return resolve({ complete: true, error: null });
+        });
+    };
+    /**
+     *
+     * Call this function to iterate through the list of items in reverse.
+     *
+     * @type {function} forEachReverse
+     * @throws {Error} if this DLL is empty.
+     * @param {function} cb call back function
+     *
+     */
+    DoublyLinkedList.prototype.forEachReverse = function (cb) {
+        var _this = this;
+        return new Promise(function (resolve) {
+            if (_this.size === 0) {
+                throw new Error("There are no items in this DLL");
+            }
+            var node = _this.tail;
+            while (node) {
+                cb(node.value);
+                node = node.next;
+            }
+            return resolve({
+                complete: true,
+                error: null
+            });
+        });
+    };
+    /**
+     *
+     * Call this function when you want to iterate through the items in the
+     * linked list but don't want to iterate through all of them.
+     *
+     * Return true in the callback to stop this function from continuing
+     * to iterate through the items.
+     *
+     * @type {function} forSome
+     * @throws {Error} if this DLL is empty.
+     * @param {function} cb callback function
+     *
+     */
+    DoublyLinkedList.prototype.forSome = function (cb) {
+        var _this = this;
+        return new Promise(function (resolve) {
+            if (_this.size === 0) {
+                throw new Error("There are no items in this DLL");
+            }
+            else {
                 var node = _this.head;
                 while (node) {
-                    cb(node.value);
-                    node = node.prev;
+                    var value = cb(node.value);
+                    if (value === true) {
+                        resolve({ complete: false, error: null });
+                        node = null;
+                    }
+                    else {
+                        node = node.prev;
+                    }
                 }
-                return resolve({ complete: true, error: null });
-            }
-            catch (e) {
-                reject({ complete: false, error: e });
+                resolve({ complete: true, error: null });
             }
         });
     };

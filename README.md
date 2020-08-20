@@ -38,6 +38,7 @@ yarn add @jeremiah_tenbrink/doubly-linked-list
 
 ## Usage
 
+### Add to head
 ```javascript
 import {DoublyLinkedList} from '@jeremiah_tenbrink/doubly-linked-list';
 const dll = DoublyLinkedList();

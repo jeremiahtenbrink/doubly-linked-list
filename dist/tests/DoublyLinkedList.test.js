@@ -137,11 +137,11 @@ describe('tests the DoubllyLinkedList class', function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, dll.forEach(function (item) {
+                    }).catch(function (e) {
+                        expect(e.message).toBe("There are no items in this DLL");
                     })];
                 case 1:
                     result = _a.sent();
-                    expect(result.complete).toBe(true);
-                    expect(result.error.message).toBe("There are no items in the DLL");
                     dll.addToHead(23);
                     dll.addToHead(24);
                     dll.addToHead(25);
@@ -155,6 +155,73 @@ describe('tests the DoubllyLinkedList class', function () {
                     expect(items).toContain(23);
                     expect(items).toContain(24);
                     expect(items).toContain(25);
+                    expect(result.complete).toBe(true);
+                    expect(result.error).toBe(null);
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+    it("tests the forSome function", function () { return __awaiter(void 0, void 0, void 0, function () {
+        var result, items;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, dll.forSome(function (item) {
+                    }).catch(function (e) {
+                        expect(e.message).toBe("There are no items in this DLL");
+                    })];
+                case 1:
+                    result = _a.sent();
+                    dll.addToHead(23);
+                    dll.addToHead(24);
+                    dll.addToHead(25);
+                    items = [];
+                    return [4 /*yield*/, dll.forSome(function (item) {
+                            items.push(item);
+                            return true;
+                        })];
+                case 2:
+                    result = _a.sent();
+                    expect(result.complete).toBe(false);
+                    expect(items.length).toBe(1);
+                    items = [];
+                    return [4 /*yield*/, dll.forSome(function (item) {
+                            items.push(item);
+                        })];
+                case 3:
+                    result = _a.sent();
+                    expect(result.complete).toBe(true);
+                    expect(result.error).toBe(null);
+                    expect(items.length).toBe(3);
+                    expect(items[0]).toBe(25);
+                    expect(items[1]).toBe(24);
+                    expect(items[2]).toBe(23);
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+    it('checks the forEachReverse function', function () { return __awaiter(void 0, void 0, void 0, function () {
+        var result, items;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, dll.forEachReverse(function (item) {
+                    }).catch(function (e) {
+                        expect(e.message).toBe("There are no items in this DLL");
+                    })];
+                case 1:
+                    result = _a.sent();
+                    dll.addToHead(23);
+                    dll.addToHead(24);
+                    dll.addToHead(25);
+                    items = [];
+                    return [4 /*yield*/, dll.forEachReverse((function (item) {
+                            items.push(item);
+                        }))];
+                case 2:
+                    result = _a.sent();
+                    expect(items.length).toBe(3);
+                    expect(items[0]).toBe(23);
+                    expect(items[1]).toBe(24);
+                    expect(items[2]).toBe(25);
                     expect(result.complete).toBe(true);
                     expect(result.error).toBe(null);
                     return [2 /*return*/];

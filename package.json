@@ -1,8 +1,9 @@
 {
   "name": "@jeremiah_tenbrink/doubly-linked-list",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "private": false,
   "author": "Jeremiah Tenbrink <jeremiahtenbrink@gmail.com>",
+
   "description": "Doubly linked list.",
   "repository": {
     "type": "git",

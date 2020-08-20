@@ -164,90 +164,113 @@ export class DoublyLinkedList {
    *
    * @type {function} forEach calls a callback function for each value added
    * to the DLL
-   * @param {Function} cb call back function
-   * @return {Promise} returns a promise that gets resolved once finished or
-   * rejects if there is an error
+   * @throws {Error} if this DLL is empty
+   * @param {function} cb call back function
+   *
    */
   forEach( cb: ( item: any ) => {} ): Promise<IterationComplete> {
-    return new Promise( ( resolve, reject ) => {
+    return new Promise( ( resolve ) => {
       
-      try {
-        
-        if ( this.size === 0 ) {
-          resolve( {
-            complete: true,
-            error: new Error( "There are no items in the DLL" )
-          } )
-        }
-        
-        let node = this.head;
-        while ( node ) {
-          cb( node.value );
-          node = node.prev;
-        }
-        
-        return resolve( { complete: true, error: null } )
-        
-      } catch ( e ) {
-        reject( { complete: false, error: e } )
+      if ( this.size === 0 ) {
+        throw new Error( "There are no items in this DLL" )
       }
+      
+      let node = this.head;
+      while ( node ) {
+        cb( node.value );
+        node = node.prev;
+      }
+      return resolve( { complete: true, error: null } )
+      
       
     } )
   }
   
   /**
    *
-   * Call this function when you want to iterate throught the items in the
+   * Call this function to iterate through the list of items in reverse.
+   *
+   * @type {function} forEachReverse
+   * @throws {Error} if this DLL is empty.
+   * @param {function} cb call back function
+   *
+   */
+  forEachReverse( cb: ( item: any ) => {} ): Promise<IterationComplete> {
+    return new Promise( ( resolve ) => {
+      
+      if ( this.size === 0 ) {
+        throw new Error( "There are no items in this DLL" )
+      }
+      
+      let node = this.tail;
+      while ( node ) {
+        cb( node.value )
+        node = node.next;
+      }
+      
+      return resolve( {
+        complete: true,
+        error: null
+      } )
+      
+      
+    } )
+  }
+  
+  /**
+   *
+   * Call this function when you want to iterate through the items in the
    * linked list but don't want to iterate through all of them.
    *
    * Return true in the callback to stop this function from continuing
    * to iterate through the items.
    *
    * @type {function} forSome
-   *
+   * @throws {Error} if this DLL is empty.
    * @param {function} cb callback function
-   * @return {Promise} returns promise that resolves when complete or when
-   * true is returned from the callback function.
+   *
    */
   forSome( cb: ( item ) => {} ): Promise<IterationComplete> {
-    return new Promise( ( resolve, reject ) => {
+    return new Promise( ( resolve ) => {
+      
       if ( this.size === 0 ) {
-        resolve( {
-          complete: true, error: new Error( "There are no items in the DLL" )
-        } )
+        throw new Error( "There are no items in this DLL" )
       } else {
-        try {
-          let node = this.head;
-          while ( node ) {
-            let value = cb( node.value );
-            if ( value === true ) {
-              resolve( { complete: false, error: null } )
-              node = null
-            } else {
-              node = node.prev;
-            }
+        
+        let node = this.head;
+        while ( node ) {
+          let value = cb( node.value );
+          if ( value === true ) {
+            resolve( { complete: false, error: null } )
+            node = null
+          } else {
+            node = node.prev;
           }
-          
-          resolve( { complete: true, error: null } )
-        } catch ( e ) {
-          reject( { complete: false, error: e } )
         }
+        
+        resolve( { complete: true, error: null } )
         
       }
     } )
   }
 }
 
-
-interface IterationComplete {
+/**
+ * Object returned indicating if ther was an error and if the itteration is
+ * complete
+ * @type {object} IterationComplete
+ */
+type IterationComplete = {
   /**
-   * @type {boolean} complete Indicates if iteration over the list is complete
+   * Indicates if iteration over the list is complete
+   * @type {boolean} complete
    */
   complete: boolean,
   
   /**
-   * @type {Error | null} error if a error occurred while iterating over the
-   * list
+   * Null if iteration complete with no errors or the error that occurred if
+   * one occurred.
+   * @type {Error | null} error
    */
   error: Error | null
 }

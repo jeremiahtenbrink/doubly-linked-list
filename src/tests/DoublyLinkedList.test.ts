@@ -111,9 +111,10 @@ describe( 'tests the DoubllyLinkedList class', () => {
   it( 'checks the forEach function', async () => {
     
     let result = await dll.forEach( item => {
-    } );
-    expect( result.complete ).toBe( true );
-    expect( result.error.message ).toBe( "There are no items in the DLL" )
+    } ).catch(e => {
+      expect( e.message ).toBe( "There are no items in this DLL" )
+    })
+    
     dll.addToHead( 23 );
     dll.addToHead( 24 );
     dll.addToHead( 25 );
@@ -131,9 +132,10 @@ describe( 'tests the DoubllyLinkedList class', () => {
   
   it( "tests the forSome function", async () => {
     let result = await dll.forSome( item => {
-    } );
-    expect( result.complete ).toBe( true )
-    expect( result.error.message ).toBe( "There are no items in the DLL" )
+    } ).catch(e => {
+      expect( e.message ).toBe( "There are no items in this DLL" )
+    })
+    
     
     dll.addToHead( 23 );
     dll.addToHead( 24 );
@@ -154,11 +156,33 @@ describe( 'tests the DoubllyLinkedList class', () => {
     expect( result.complete ).toBe( true );
     expect( result.error ).toBe( null );
     expect( items.length ).toBe( 3 );
-    expect( items ).toContain( 23 )
-    expect( items ).toContain( 24 )
-    expect( items ).toContain( 25 )
+    expect( items[ 0 ] ).toBe( 25 )
+    expect( items[ 1 ] ).toBe( 24 )
+    expect( items[ 2 ] ).toBe( 23 )
     
     
+  } )
+  
+  it( 'checks the forEachReverse function', async () => {
+    
+    let result = await dll.forEachReverse( item => {
+    } ).catch( e => {
+      expect( e.message ).toBe( "There are no items in this DLL" )
+    } )
+    
+    dll.addToHead( 23 );
+    dll.addToHead( 24 );
+    dll.addToHead( 25 );
+    const items = []
+    result = await dll.forEachReverse( ( item => {
+      items.push( item );
+    } ) );
+    expect( items.length ).toBe( 3 );
+    expect( items[ 0 ] ).toBe( 23 );
+    expect( items[ 1 ] ).toBe( 24 );
+    expect( items[ 2 ] ).toBe( 25 );
+    expect( result.complete ).toBe( true )
+    expect( result.error ).toBe( null )
   } )
   
   
