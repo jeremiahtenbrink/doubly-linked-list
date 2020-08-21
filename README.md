@@ -79,11 +79,15 @@ dll.forSome(item => {
 
 👤 **Jeremiah Tenbrink**
 
-<div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="f767c1ec-2b50-4901-a250-49b6d9467d37" data-share-badge-host="https://www.youracclaim.com"></div><script type="text/javascript" async src="//cdn.youracclaim.com/assets/utilities/embed.js"></script>
+<img class="cr-badges-full-badge__img" src="https://images.youracclaim.com/size/340x340/images/866c4132-ed2f-44f5-83df-86bf2ae639d9/lambda-badge-full-stack-web.png" alt="Full-Stack Web Development + Technical Interviewing" width="100" height="100">
 
 * Portfolio: http://tenbrink.dev
 * GitHub: [@jeremiahtenbrink](https://github.com/jeremiahtenbrink)
 * LinkedIn: [@jeremiahtenbrink](https://linkedin.com/in/jeremiahtenbrink)
+
+
+
+
 
 ## 🤝 Contributing
 
