@@ -84,8 +84,7 @@ dll.forSome(item => {
 <img src="https://github-badge.vercel.app/api/badges/linkedin/@JeremiahTenbrink" height="50"/>
 </a>
 <a href="https://github.com/jeremiahtenbrink">
-<img src="https://github-badge.vercel.app/api/badges/github/@JeremiahTenbrink
-" height="50"/>
+<img src="https://github-badge.vercel.app/api/badges/github/@JeremiahTenbrink" height="50"/>
 </a>
 
 
