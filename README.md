@@ -77,10 +77,7 @@ dll.forSome(item => {
 
 ## Author
 
-👤 **Jeremiah Tenbrink**
-
-
-<img src="https://github-badge.vercel.app/api/badges/githubBadge/JeremiahTenbrink" alt="Full-Stack Web Development + Technical Interviewing" height="200" />
+<img src="https://github-badge.vercel.app/api/badges/githubBadge/JeremiahTenbrink" alt="Full-Stack Web Development + Technical Interviewing" height="300" />
 
 
 ## 🤝 Contributing
