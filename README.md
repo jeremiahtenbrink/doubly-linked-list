@@ -79,7 +79,7 @@ dll.forSome(item => {
 
 👤 **Jeremiah Tenbrink**
 
-<img class="cr-badges-full-badge__img" src="https://images.youracclaim.com/size/340x340/images/866c4132-ed2f-44f5-83df-86bf2ae639d9/lambda-badge-full-stack-web.png" alt="Full-Stack Web Development + Technical Interviewing" width="100" height="100">
+<img class="cr-badges-full-badge__img" src="https://images.youracclaim.com/size/340x340/images/866c4132-ed2f-44f5-83df-86bf2ae639d9/lambda-badge-full-stack-web.png" alt="Full-Stack Web Development + Technical Interviewing" width="200" height="200">
 
 * Portfolio: http://tenbrink.dev
 * GitHub: [@jeremiahtenbrink](https://github.com/jeremiahtenbrink)
