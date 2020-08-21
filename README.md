@@ -79,16 +79,8 @@ dll.forSome(item => {
 
 👤 **Jeremiah Tenbrink**
 
-<a href="https://www.youracclaim.com/badges/f767c1ec-2b50-4901-a250-49b6d9467d37">
-<img class="cr-badges-full-badge__img" src="https://images.youracclaim.com/size/340x340/images/866c4132-ed2f-44f5-83df-86bf2ae639d9/lambda-badge-full-stack-web.png" alt="Full-Stack Web Development + Technical Interviewing" width="200" height="200" />
-</a>
 
-* Portfolio: http://tenbrink.dev
-* GitHub: [@jeremiahtenbrink](https://github.com/jeremiahtenbrink)
-* LinkedIn: [@jeremiahtenbrink](https://linkedin.com/in/jeremiahtenbrink)
-
-
-
+<img src="https://github-badge.vercel.app/api/badges/githubBadge/JeremiahTenbrink" alt="Full-Stack Web Development + Technical Interviewing" height="200" />
 
 
 ## 🤝 Contributing
